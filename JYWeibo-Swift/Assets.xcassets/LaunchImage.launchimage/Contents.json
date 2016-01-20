@@ -12,15 +12,6 @@
     {
       "extent" : "full-screen",
       "idiom" : "iphone",
-      "subtype" : "736h",
-      "filename" : "Default-736h_left@3x.png",
-      "minimum-system-version" : "8.0",
-      "orientation" : "landscape",
-      "scale" : "3x"
-    },
-    {
-      "extent" : "full-screen",
-      "idiom" : "iphone",
       "subtype" : "667h",
       "filename" : "Default-667h@2x.png",
       "minimum-system-version" : "8.0",
@@ -49,6 +40,16 @@
       "idiom" : "iphone",
       "extent" : "full-screen",
       "scale" : "2x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "736h",
+      "filename" : "Default-736h_left@3x.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "landscape",
+      "unassigned" : true,
+      "scale" : "3x"
     }
   ],
   "info" : {
