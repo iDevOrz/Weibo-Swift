@@ -8,18 +8,32 @@
 
 import UIKit
 
-class BaseTableViewController: UITableViewController {
+class BaseTableViewController: UITableViewController ,VisitorViewDelegate{
 
     var userIsLogin = false;
     
+    var visitorView = VisitorView()
     override func loadView() {
         userIsLogin ? super.loadView() : setupVisitorView()
     }
     
     
     private func setupVisitorView(){
-    let  visitorView = VisitorView()
-    visitorView.backgroundColor = UIColor.whiteColor()
-    view = visitorView
+        visitorView.delegate = self
+        view = visitorView
+        
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: "registerBtnClick")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .Plain, target: self, action: "loginBtnDidClick")
+        
     }
+    
+    func loginBtnDidClick(){
+        print(__FUNCTION__)
+    }
+    
+    func registerBtnClick(){
+        print(__FUNCTION__)
+    }
+
 }

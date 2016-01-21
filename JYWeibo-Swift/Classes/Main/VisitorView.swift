@@ -9,11 +9,38 @@
 import UIKit
 import SnapKit
 
+protocol VisitorViewDelegate:NSObjectProtocol{
+    
+    func loginBtnDidClick()
+    
+    func registerBtnClick()
+
+}
 class VisitorView: UIView {
+    
+    //代理 必须用week修饰 避免循环引用
+    weak var delegate:VisitorViewDelegate?
+    
+    
+    /**
+     访客界面配置
+     
+     - parameter isHome:    是否是首页
+     - parameter imageName: 图片名
+     - parameter message:   文字信息
+     */
+    func setupVisitorInfo(isHome:Bool,imageName:String,message:String){
+        iconView.hidden = !isHome
+        homeIcon.image = UIImage(named: imageName)
+        messageLabel.text = message
+        StartAnimation()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         addSubview(iconView)
+        addSubview(maskBackgroundView)
         addSubview(homeIcon)
         addSubview(messageLabel)
         addSubview(loginButton)
@@ -29,42 +56,46 @@ class VisitorView: UIView {
         messageLabel.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(iconView.snp_bottom)
             make.centerX.equalTo(self)
-            make.left.equalTo(self).offset(40)
-            make.right.equalTo(self).offset(-40)
+            make.width.equalTo(220)
         }
-        registerButton .snp_makeConstraints { (make) -> Void in
+        registerButton.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(messageLabel.snp_bottom)
             make.left.equalTo(messageLabel.snp_left)
             make.height.equalTo(30)
             make.width.equalTo(100)
         }
-        loginButton .snp_makeConstraints { (make) -> Void in
+        loginButton.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(messageLabel.snp_bottom)
             make.right.equalTo(messageLabel.snp_right)
             make.height.equalTo(30)
             make.width.equalTo(100)
+        }
+        maskBackgroundView.snp_makeConstraints { (make) -> Void in
+            make.left.right.top.bottom.equalTo(self)
         }
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    /// 转盘
+    
+    
+    //MARK: 转盘
     private lazy var iconView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
         return imageView
     }()
     
-    /// 图标
+    //MARK: 图标
     private lazy var homeIcon: UIImageView = {
         let image = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
         return image
     }()
     
-    /// 文本
+    //MARK: 文本
     private lazy var messageLabel: UILabel = {
         let label = UILabel()
-        label.text = "我是张建宇,这是我仿写的新浪微博项目,用来学习Swift2.0,后面的文字是用来测试换行的~"
+        label.text = "我是张建宇,这是我仿写的新浪微博项目,用来学习Swift2.0"
         label.textColor = UIColor.grayColor()
         label.numberOfLines = 0
         return label
@@ -74,6 +105,7 @@ class VisitorView: UIView {
         let loginButton = UIButton()
         loginButton.setTitle("登陆", forState: .Normal)
         loginButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
+        loginButton.addTarget(self, action: "loginButtonClick", forControlEvents: .TouchUpInside)
         loginButton.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: .Normal)
         return loginButton
     }()
@@ -82,10 +114,37 @@ class VisitorView: UIView {
         let registerButton = UIButton()
         registerButton.setTitle("注册", forState: .Normal)
         registerButton.setTitleColor(UIColor.orangeColor(), forState: .Normal)
+        registerButton.addTarget(self, action: "registerButtonClick", forControlEvents: .TouchUpInside)
         registerButton.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: .Normal)
         return registerButton
     }()
     
     
+    private lazy var maskBackgroundView: UIImageView = {
+        let maskView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
+        return maskView
+    }()
+    
+    private func StartAnimation(){
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        animation.toValue = M_PI * 2
+        animation.duration = 20
+        animation.repeatCount = MAXFLOAT
+        
+        animation.removedOnCompletion = false
+        
+        iconView.layer.addAnimation(animation, forKey: nil)
+        
+    }
+    
+    //MARK: 注册按钮的点击事件
+    func registerButtonClick(){
+        delegate?.registerBtnClick()
+    }
+    
+    //:MARK: 登陆按钮的点击时间
+    func loginButtonClick(){
+        delegate?.loginBtnDidClick()
+    }
     
 }
