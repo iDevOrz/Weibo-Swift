@@ -18,6 +18,8 @@
 		4504D9901C4E8156006AE185 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504D98F1C4E8156006AE185 /* ProfileViewController.swift */; };
 		4504D9921C4FCCBB006AE185 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504D9911C4FCCBB006AE185 /* BaseTableViewController.swift */; };
 		4504D9941C4FCFAA006AE185 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504D9931C4FCFAA006AE185 /* VisitorView.swift */; };
+		45174B1B1C5A5A6F00B6545C /* PopoverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45174B1A1C5A5A6F00B6545C /* PopoverViewController.storyboard */; };
+		45174B1D1C5A5EE500B6545C /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45174B1C1C5A5EE500B6545C /* PopoverPresentationController.swift */; };
 		45C2A79E1C56712D001E3CD7 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */; };
 		45C2A7A01C567790001E3CD7 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2A79F1C567790001E3CD7 /* TitleButton.swift */; };
 		75B80BBCEF06120DD189F637 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CC8988676EC8B2A523E39D /* Pods.framework */; };
@@ -58,6 +60,8 @@
 		4504D98F1C4E8156006AE185 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4504D9911C4FCCBB006AE185 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		4504D9931C4FCFAA006AE185 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
+		45174B1A1C5A5A6F00B6545C /* PopoverViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopoverViewController.storyboard; sourceTree = "<group>"; };
+		45174B1C1C5A5EE500B6545C /* PopoverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationController.swift; sourceTree = "<group>"; };
 		45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Category.swift"; sourceTree = "<group>"; };
 		45C2A79F1C567790001E3CD7 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		5874E83C312D8EEC9473F5B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 		4504D9781C4E72D1006AE185 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				45174B171C5A5A5F00B6545C /* Popover */,
 				4504D98B1C4E8142006AE185 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -212,6 +217,15 @@
 			children = (
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		45174B171C5A5A5F00B6545C /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				45174B1A1C5A5A6F00B6545C /* PopoverViewController.storyboard */,
+				45174B1C1C5A5EE500B6545C /* PopoverPresentationController.swift */,
+			);
+			path = Popover;
 			sourceTree = "<group>";
 		};
 		695F395C6C8A3A22BFD62099 /* Frameworks */ = {
@@ -341,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45174B1B1C5A5A6F00B6545C /* PopoverViewController.storyboard in Resources */,
 				4504D94F1C4E70B6006AE185 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +434,7 @@
 				4504D98A1C4E8138006AE185 /* DiscoverViewController.swift in Sources */,
 				4504D9921C4FCCBB006AE185 /* BaseTableViewController.swift in Sources */,
 				4504D9901C4E8156006AE185 /* ProfileViewController.swift in Sources */,
+				45174B1D1C5A5EE500B6545C /* PopoverPresentationController.swift in Sources */,
 				4504D98E1C4E814C006AE185 /* MessageViewController.swift in Sources */,
 				4504D9481C4E70B6006AE185 /* AppDelegate.swift in Sources */,
 				4504D9941C4FCFAA006AE185 /* VisitorView.swift in Sources */,
