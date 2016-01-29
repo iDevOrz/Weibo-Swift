@@ -21,7 +21,8 @@ class MainViewController: UITabBarController {
     private func addChildViewControllers(){
         addChildViewController(HomeViewController(), title: "首页", imageName: "tabbar_home")
         addChildViewController(MessageViewController(), title: "消息", imageName: "tabbar_message_center")
-        addChildViewController(UIViewController(), title: "", imageName: "")
+
+        addChildViewController(UIViewController())
         addChildViewController(DiscoverViewController(), title: "广场", imageName: "tabbar_discover")
         addChildViewController(ProfileViewController(), title: "我", imageName: "tabbar_profile")
         

@@ -18,6 +18,13 @@ class HomeViewController: BaseTableViewController {
             return;
         }
         setupNav()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorDismissNotification, object: nil)
+    }
+
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     private func setupNav(){
@@ -30,18 +37,23 @@ class HomeViewController: BaseTableViewController {
         navigationItem.titleView = titleBtn
     }
     
+    func change(){
+        let titleBtn = navigationItem.titleView as! TitleButton
+        titleBtn.selected = !titleBtn.selected
+    }
+    
     func titltBtnClick(btn:TitleButton){
-        btn.selected = !btn.selected
-        let sb = UIStoryboard(name: "PopoverViewController", bundle: nil)
-        let popoverVC = sb.instantiateInitialViewController()
+        let popoverVC = PopoverViewController()
         
-        popoverVC?.transitioningDelegate = self
-        popoverVC?.modalPresentationStyle = .Custom
+        popoverVC.transitioningDelegate = popoverAnimator
+        popoverVC.modalPresentationStyle = .Custom
         
         
-        presentViewController(popoverVC!, animated: true, completion: nil)
+        presentViewController(popoverVC, animated: true, completion: nil)
         print(__FUNCTION__)
     }
+    
+    private lazy var popoverAnimator = PopoverAnimator()
     
     func leftItemClick(){
         print(__FUNCTION__)
@@ -52,78 +64,5 @@ class HomeViewController: BaseTableViewController {
     }
     
     var isPresent:Bool = false
-
-}
-
-
-// MARK: - 自定义的弹出动画
-extension HomeViewController: UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning {
-    
-    
-
-    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?{
-        return PopoverPresentationController(presentedViewController:presented , presentingViewController: presenting)
-        
-    }
-    
-    /**
-     视图展现时调用
-     
-     - parameter presented:  <#presented description#>
-     - parameter presenting: <#presenting description#>
-     - parameter source:     <#source description#>
-     
-     - returns: <#return value description#>
-     */
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?{
-        isPresent = true
-        return self
-    }
-    
-    /**
-     视图消失时调用
-     
-     - parameter dismissed: <#dismissed description#>
-     
-     - returns: <#return value description#>
-     */
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?{
-        isPresent = false
-        return self
-    }
-    
-    // This is used for percent driven interactive transitions, as well as for container controllers that have companion animations that might need to
-    // synchronize with the main animation.
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval{
-        return 0.5
-    }
-    // This method can only  be a nop if the transition is interactive and not a percentDriven interactive transition.
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning){
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)
-        if(isPresent){
-        toView?.transform = CGAffineTransformMakeScale(1.0, 0)
-        
-        transitionContext.containerView()?.addSubview(toView!)
-        
-        toView?.layer.anchorPoint = CGPoint(x: 0.5, y: 0)
-        
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            toView?.transform = CGAffineTransformIdentity
-            }) { (_) -> Void in
-                transitionContext.completeTransition(true)
-        }
-        
-        
-        }else{
-    let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)
-    UIView.animateWithDuration(0.2, animations: { () -> Void in
-    fromView?.transform = CGAffineTransformMakeScale(1.0, 0.01)
-    }) { (_) -> Void in
-    transitionContext.completeTransition(true)
-    }
-    
-    }
-
-}
 
 }

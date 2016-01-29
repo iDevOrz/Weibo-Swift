@@ -8,14 +8,24 @@
 
 import UIKit
 
+let screenWidth = UIScreen.mainScreen().bounds.width
+
 class PopoverPresentationController: UIPresentationController {
+    
+    var presentFrame = CGRectZero
     
     override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
         super.init(presentedViewController: presentedViewController, presentingViewController:presentingViewController)
     }
     override func containerViewWillLayoutSubviews() {
-        presentedView()?.frame = CGRectMake(100, 56, 200, 200)
         containerView?.insertSubview(coverView, atIndex: 0)
+        coverView.frame = (containerView?.frame)!
+        if presentFrame == CGRectZero{
+            presentedView()?.frame = CGRect(x:(screenWidth-200)/2.0 , y: 56, width: 200, height: 200)
+        }else
+        {
+            presentedView()?.frame = presentFrame
+        }
     }
     
     //MARK: 蒙版
