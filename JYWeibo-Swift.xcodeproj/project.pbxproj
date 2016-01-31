@@ -20,7 +20,10 @@
 		4504D9941C4FCFAA006AE185 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504D9931C4FCFAA006AE185 /* VisitorView.swift */; };
 		45174B1D1C5A5EE500B6545C /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45174B1C1C5A5EE500B6545C /* PopoverPresentationController.swift */; };
 		45174B251C5A75FD00B6545C /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45174B241C5A75FD00B6545C /* PopoverAnimator.swift */; };
+		452B2B661C5D25B800B6D083 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B651C5D25B800B6D083 /* UserAccount.swift */; };
+		452B2B681C5D26CD00B6D083 /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B671C5D26CD00B6D083 /* String+Category.swift */; };
 		458AFFED1C5AEFB4000CAF1C /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */; };
+		45A570CC1C5CB60D005E3A3E /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */; };
 		45C2A79E1C56712D001E3CD7 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */; };
 		45C2A7A01C567790001E3CD7 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2A79F1C567790001E3CD7 /* TitleButton.swift */; };
 		75B80BBCEF06120DD189F637 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CC8988676EC8B2A523E39D /* Pods.framework */; };
@@ -63,7 +66,10 @@
 		4504D9931C4FCFAA006AE185 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		45174B1C1C5A5EE500B6545C /* PopoverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationController.swift; sourceTree = "<group>"; };
 		45174B241C5A75FD00B6545C /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
+		452B2B651C5D25B800B6D083 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		452B2B671C5D26CD00B6D083 /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Category.swift"; path = "JYWeibo-Swift/Classes/OAuth/String+Category.swift"; sourceTree = SOURCE_ROOT; };
 		458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Category.swift"; sourceTree = "<group>"; };
 		45C2A79F1C567790001E3CD7 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		5874E83C312D8EEC9473F5B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 		4504D9751C4E72D1006AE185 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				45A570CA1C5CB5D9005E3A3E /* OAuth */,
 				4504D9761C4E72D1006AE185 /* Common */,
 				4504D9771C4E72D1006AE185 /* Discover */,
 				4504D9781C4E72D1006AE185 /* Home */,
@@ -217,6 +224,7 @@
 		4504D97C1C4E72D1006AE185 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				452B2B671C5D26CD00B6D083 /* String+Category.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -229,6 +237,15 @@
 				458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */,
 			);
 			path = Popover;
+			sourceTree = "<group>";
+		};
+		45A570CA1C5CB5D9005E3A3E /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */,
+				452B2B651C5D25B800B6D083 /* UserAccount.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		695F395C6C8A3A22BFD62099 /* Frameworks */ = {
@@ -431,6 +448,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				452B2B681C5D26CD00B6D083 /* String+Category.swift in Sources */,
+				45A570CC1C5CB60D005E3A3E /* OAuthViewController.swift in Sources */,
 				4504D98C1C4E8142006AE185 /* HomeViewController.swift in Sources */,
 				4504D9801C4E7353006AE185 /* MainViewController.swift in Sources */,
 				458AFFED1C5AEFB4000CAF1C /* PopoverViewController.swift in Sources */,
@@ -444,6 +463,7 @@
 				4504D9941C4FCFAA006AE185 /* VisitorView.swift in Sources */,
 				45C2A7A01C567790001E3CD7 /* TitleButton.swift in Sources */,
 				45C2A79E1C56712D001E3CD7 /* UIBarButtonItem+Category.swift in Sources */,
+				452B2B661C5D25B800B6D083 /* UserAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

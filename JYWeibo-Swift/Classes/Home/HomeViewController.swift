@@ -61,6 +61,7 @@ class HomeViewController: BaseTableViewController {
     
     func rightItemClick(){
         print(__FUNCTION__)
+       print(UserAccount.loadAccount())
     }
     
     var isPresent:Bool = false

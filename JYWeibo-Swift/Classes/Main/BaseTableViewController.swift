@@ -10,7 +10,7 @@ import UIKit
 
 class BaseTableViewController: UITableViewController ,VisitorViewDelegate{
 
-    var userIsLogin = true;
+    var userIsLogin = UserAccount.userLogin()
     
     var visitorView = VisitorView()
     override func loadView() {
@@ -29,7 +29,8 @@ class BaseTableViewController: UITableViewController ,VisitorViewDelegate{
     }
     
     func loginBtnDidClick(){
-        print(__FUNCTION__)
+        let nav = UINavigationController(rootViewController: OAuthViewController())
+        presentViewController(nav, animated: true, completion: nil)
     }
     
     func registerBtnClick(){
