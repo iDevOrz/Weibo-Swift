@@ -10,25 +10,21 @@ import UIKit
 import Alamofire
 
 class UserAccount: NSObject , NSCoding{
-    /// 用于调用access_token，接口获取授权后的access token。
     var access_token: String?
-    /// access_token的生命周期，单位是秒数。
     var expires_in: NSNumber?{
         didSet{
-            // 根据过期的秒数, 生成真正地过期时间
+            //过期时间
             expires_Date = NSDate(timeIntervalSinceNow: expires_in!.doubleValue)
             print(expires_Date)
         }
     }
     
-    /// 保存用户过期时间
     var expires_Date: NSDate?
-    /// 当前授权用户的UID。
+    
     var uid:String?
     
-    /// 用户头像地址（大图），180×180像素
     var avatar_large: String?
-    /// 用户昵称
+    
     var screen_name: String?
     
     override init() {
@@ -42,15 +38,6 @@ class UserAccount: NSObject , NSCoding{
     }
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
         print(key)
-    }
-    
-    override var description: String{
-        // 1.定义属性数组
-        let properties = ["access_token", "expires_in", "uid", "expires_Date", "avatar_large", "screen_name"]
-        // 2.根据属性数组, 将属性转换为字典
-        let dict =  self.dictionaryWithValuesForKeys(properties)
-        // 3.将字典转换为字符串
-        return "\(dict)"
     }
     
     func loadUserInfo(finished: (account: UserAccount?, error:NSError?)->())
@@ -78,18 +65,11 @@ class UserAccount: NSObject , NSCoding{
     }
 
     
-    /**
-     返回用户是否登录
-     */
     class func userLogin() -> Bool
     {
         return UserAccount.loadAccount() != nil
     }
     
-    // MARK: - 保存和读取  Keyed
-    /**
-    保存授权模型
-    */
     static let filePath = "account.plist".cacheDir()
     func saveAccount()
     {
@@ -104,10 +84,9 @@ class UserAccount: NSObject , NSCoding{
         }
         account =  NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? UserAccount
         
-        //判断授权信息是否过期
         if account?.expires_Date?.compare(NSDate()) == NSComparisonResult.OrderedAscending
         {
-            // 已经过期
+            // 过期
             return nil
         }
         

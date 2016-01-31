@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 protocol VisitorViewDelegate:NSObjectProtocol{
     
@@ -98,6 +97,7 @@ class VisitorView: UIView {
         label.text = "我是张建宇,这是我仿写的新浪微博项目,用来学习Swift2.0"
         label.textColor = UIColor.grayColor()
         label.numberOfLines = 0
+        label.textAlignment = .Center
         return label
     }()
     

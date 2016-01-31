@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JYWeibo-Swift/Classes/Main/VisitorView.swift"
-            timestampString = "475083352.76051"
+            timestampString = "475908109.176684"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "VisitorView"
             landmarkType = "3">
          </BreakpointContent>

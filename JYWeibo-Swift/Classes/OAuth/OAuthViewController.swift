@@ -78,6 +78,8 @@ extension OAuthViewController: UIWebViewDelegate {
                 if account != nil
                 {
                     account!.saveAccount()
+                    
+                     NSNotificationCenter.defaultCenter().postNotificationName(JYSwitchRootViewControllerKey, object: false)
                 }
                 
             }

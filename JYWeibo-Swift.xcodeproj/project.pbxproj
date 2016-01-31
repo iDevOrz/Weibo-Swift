@@ -22,6 +22,8 @@
 		45174B251C5A75FD00B6545C /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45174B241C5A75FD00B6545C /* PopoverAnimator.swift */; };
 		452B2B661C5D25B800B6D083 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B651C5D25B800B6D083 /* UserAccount.swift */; };
 		452B2B681C5D26CD00B6D083 /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B671C5D26CD00B6D083 /* String+Category.swift */; };
+		452B2B6B1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B6A1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift */; };
+		452B2B6D1C5DBFBF00B6D083 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B6C1C5DBFBF00B6D083 /* WelcomeViewController.swift */; };
 		458AFFED1C5AEFB4000CAF1C /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */; };
 		45A570CC1C5CB60D005E3A3E /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */; };
 		45C2A79E1C56712D001E3CD7 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */; };
@@ -68,6 +70,8 @@
 		45174B241C5A75FD00B6545C /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		452B2B651C5D25B800B6D083 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		452B2B671C5D26CD00B6D083 /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Category.swift"; path = "JYWeibo-Swift/Classes/OAuth/String+Category.swift"; sourceTree = SOURCE_ROOT; };
+		452B2B6A1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewfeatureCollectionViewController.swift; sourceTree = "<group>"; };
+		452B2B6C1C5DBFBF00B6D083 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Category.swift"; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 		4504D9751C4E72D1006AE185 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				452B2B691C5DB8B300B6D083 /* Newfeature */,
 				45A570CA1C5CB5D9005E3A3E /* OAuth */,
 				4504D9761C4E72D1006AE185 /* Common */,
 				4504D9771C4E72D1006AE185 /* Discover */,
@@ -237,6 +242,15 @@
 				458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */,
 			);
 			path = Popover;
+			sourceTree = "<group>";
+		};
+		452B2B691C5DB8B300B6D083 /* Newfeature */ = {
+			isa = PBXGroup;
+			children = (
+				452B2B6A1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift */,
+				452B2B6C1C5DBFBF00B6D083 /* WelcomeViewController.swift */,
+			);
+			path = Newfeature;
 			sourceTree = "<group>";
 		};
 		45A570CA1C5CB5D9005E3A3E /* OAuth */ = {
@@ -454,8 +468,10 @@
 				4504D9801C4E7353006AE185 /* MainViewController.swift in Sources */,
 				458AFFED1C5AEFB4000CAF1C /* PopoverViewController.swift in Sources */,
 				4504D98A1C4E8138006AE185 /* DiscoverViewController.swift in Sources */,
+				452B2B6B1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift in Sources */,
 				4504D9921C4FCCBB006AE185 /* BaseTableViewController.swift in Sources */,
 				4504D9901C4E8156006AE185 /* ProfileViewController.swift in Sources */,
+				452B2B6D1C5DBFBF00B6D083 /* WelcomeViewController.swift in Sources */,
 				45174B1D1C5A5EE500B6545C /* PopoverPresentationController.swift in Sources */,
 				45174B251C5A75FD00B6545C /* PopoverAnimator.swift in Sources */,
 				4504D98E1C4E814C006AE185 /* MessageViewController.swift in Sources */,
