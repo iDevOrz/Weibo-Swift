@@ -16,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        print(UserAccount.loadAccount())
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootViewController:", name: JYSwitchRootViewControllerKey, object: nil)
         
         UINavigationBar.appearance().tintColor = UIColor.orangeColor()
@@ -28,8 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = defaultContoller()
         window?.makeKeyAndVisible()
         
-        print(isNewupdate())
-        
         return true
     }
     
@@ -38,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func switchRootViewController(notify: NSNotification){
-        //        print(notify.object)
         if notify.object as! Bool
         {
             window?.rootViewController = MainViewController()

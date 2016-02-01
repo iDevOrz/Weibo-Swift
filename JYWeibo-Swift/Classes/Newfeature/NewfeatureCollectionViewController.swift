@@ -43,7 +43,6 @@ class NewfeatureCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         
         let path = collectionView.indexPathsForVisibleItems().last!
-        print(path)
         if path.item == (pageCount - 1)
         {
             let cell = collectionView.cellForItemAtIndexPath(path) as! NewfeatureCell

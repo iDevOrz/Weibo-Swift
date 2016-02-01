@@ -8,7 +8,16 @@
 
 import UIKit
 
+let JYHomeVCCellReuseIdentifier = "JYHomeVCCellReuseIdentifier"
+
 class HomeViewController: BaseTableViewController {
+    
+    var statuses: [Status]?
+        {
+        didSet{
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +30,12 @@ class HomeViewController: BaseTableViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorDismissNotification, object: nil)
+        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: JYHomeVCCellReuseIdentifier)
+        
+        loadData()
     }
-
+    
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
@@ -35,6 +48,18 @@ class HomeViewController: BaseTableViewController {
         titleBtn.setTitle("Jatstar", forState: .Normal)
         titleBtn .addTarget(self, action: "titltBtnClick:", forControlEvents: .TouchUpInside)
         navigationItem.titleView = titleBtn
+    }
+    
+    private func loadData()
+    {
+        Status.loadStatuses { (models, error) -> () in
+            
+            if error != nil
+            {
+                return
+            }
+            self.statuses = models
+        }
     }
     
     func change(){
@@ -66,4 +91,20 @@ class HomeViewController: BaseTableViewController {
     
     var isPresent:Bool = false
 
+}
+
+
+
+extension HomeViewController
+{
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statuses?.count ?? 0
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(JYHomeVCCellReuseIdentifier, forIndexPath: indexPath)
+        let status = statuses![indexPath.row]
+        cell.textLabel?.text = status.text
+        return cell
+    }
 }

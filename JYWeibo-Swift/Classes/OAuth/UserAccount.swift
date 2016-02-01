@@ -15,7 +15,6 @@ class UserAccount: NSObject , NSCoding{
         didSet{
             //过期时间
             expires_Date = NSDate(timeIntervalSinceNow: expires_in!.doubleValue)
-            print(expires_Date)
         }
     }
     
@@ -37,14 +36,11 @@ class UserAccount: NSObject , NSCoding{
         setValuesForKeysWithDictionary(dict)
     }
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
-        print(key)
     }
     
     func loadUserInfo(finished: (account: UserAccount?, error:NSError?)->())
     {
-        assert(access_token != nil, "没有授权")
         let params = ["access_token":access_token!, "uid":uid!]
-        print(params)
         Alamofire.request(.GET, "https://api.weibo.com/2/users/show.json", parameters:params , encoding:.URLEncodedInURL , headers: nil).responseJSON { (
             Response
             ) -> Void in

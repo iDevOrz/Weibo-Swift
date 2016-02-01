@@ -28,6 +28,8 @@
 		45A570CC1C5CB60D005E3A3E /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */; };
 		45C2A79E1C56712D001E3CD7 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */; };
 		45C2A7A01C567790001E3CD7 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2A79F1C567790001E3CD7 /* TitleButton.swift */; };
+		45C71FE81C5FA9510043BB47 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C71FE71C5FA9510043BB47 /* Status.swift */; };
+		45C71FEA1C5FA9740043BB47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C71FE91C5FA9740043BB47 /* User.swift */; };
 		75B80BBCEF06120DD189F637 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CC8988676EC8B2A523E39D /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Category.swift"; sourceTree = "<group>"; };
 		45C2A79F1C567790001E3CD7 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
+		45C71FE71C5FA9510043BB47 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		45C71FE91C5FA9740043BB47 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5874E83C312D8EEC9473F5B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		96CC8988676EC8B2A523E39D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC46E8F7BB2C4D280D7CED94 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 			children = (
 				45174B171C5A5A5F00B6545C /* Popover */,
 				4504D98B1C4E8142006AE185 /* HomeViewController.swift */,
+				45C71FE71C5FA9510043BB47 /* Status.swift */,
+				45C71FE91C5FA9740043BB47 /* User.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 				4504D98A1C4E8138006AE185 /* DiscoverViewController.swift in Sources */,
 				452B2B6B1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift in Sources */,
 				4504D9921C4FCCBB006AE185 /* BaseTableViewController.swift in Sources */,
+				45C71FEA1C5FA9740043BB47 /* User.swift in Sources */,
 				4504D9901C4E8156006AE185 /* ProfileViewController.swift in Sources */,
 				452B2B6D1C5DBFBF00B6D083 /* WelcomeViewController.swift in Sources */,
 				45174B1D1C5A5EE500B6545C /* PopoverPresentationController.swift in Sources */,
@@ -479,6 +486,7 @@
 				4504D9941C4FCFAA006AE185 /* VisitorView.swift in Sources */,
 				45C2A7A01C567790001E3CD7 /* TitleButton.swift in Sources */,
 				45C2A79E1C56712D001E3CD7 /* UIBarButtonItem+Category.swift in Sources */,
+				45C71FE81C5FA9510043BB47 /* Status.swift in Sources */,
 				452B2B661C5D25B800B6D083 /* UserAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

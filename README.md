@@ -1,6 +1,6 @@
 # 新浪微博
 
-Weibo by swift2.0
+Weibo by Swift2.0
 
 ## 测试环境
 
