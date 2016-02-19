@@ -1,18 +1,21 @@
 PODS:
-  - Alamofire (3.1.5)
-  - Kingfisher (2.0.1)
+  - Alamofire (3.2.0)
+  - Kingfisher (2.0.3)
+  - Reveal-iOS-SDK (1.6.2)
   - SnapKit (0.15.0)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - Kingfisher (~> 2.0)
+  - Reveal-iOS-SDK
   - SnapKit (~> 0.15.0)
   - SwiftyJSON (~> 2.3.2)
 
 SPEC CHECKSUMS:
-  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
-  Kingfisher: 3af2020040453f710507819e6aa5f5721da03d9b
+  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  Kingfisher: 44c1f1912f19371a67d701e67c96d6bb45ca1c8d
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 

@@ -31,7 +31,8 @@ class HomeViewController: BaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorDismissNotification, object: nil)
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: JYHomeVCCellReuseIdentifier)
+        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: JYHomeVCCellReuseIdentifier)
+        tableView.separatorStyle = .None
         
         loadData()
     }
@@ -88,9 +89,13 @@ class HomeViewController: BaseTableViewController {
         print(__FUNCTION__)
        print(UserAccount.loadAccount())
     }
-    
-    var isPresent:Bool = false
 
+
+    var rowCache: [Int: CGFloat] = [Int: CGFloat]()
+    
+    override func didReceiveMemoryWarning() {
+        rowCache.removeAll()
+    }
 }
 
 
@@ -102,9 +107,26 @@ extension HomeViewController
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(JYHomeVCCellReuseIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(JYHomeVCCellReuseIdentifier, forIndexPath: indexPath) as! StatusTableViewCell
         let status = statuses![indexPath.row]
-        cell.textLabel?.text = status.text
+        cell.status = status
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let status = statuses![indexPath.row]
+        
+        if let height = rowCache[status.id]
+        {
+            return height
+        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(JYHomeVCCellReuseIdentifier) as! StatusTableViewCell
+        
+        let rowHeight = cell.rowHeight(status)
+        
+        rowCache[status.id] = rowHeight
+        
+        return rowHeight
     }
 }

@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController {
         iconView.snp_makeConstraints { (make) -> Void in
             make.width.height.equalTo(100)
             make.centerX.equalTo(view)
-            make.bottom.equalTo(view.snp_bottom).offset(-150)
+            make.top.equalTo(view.snp_top).offset(200)
         }
         
         messageLabel.snp_makeConstraints { (make) -> Void in
@@ -45,15 +45,15 @@ class WelcomeViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animateWithDuration(2.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
+        UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
 
              self.view.layoutIfNeeded()
             self.iconView.snp_updateConstraints(closure: { (make) -> Void in
-                make.bottom.equalTo(self.view.snp_bottom).offset(150 - UIScreen.mainScreen().bounds.size.height)
+                make.top.equalTo(self.view.snp_top).offset(100)
             })
             self.view.layoutIfNeeded()
             }) { (_) -> Void in
-                UIView.animateWithDuration( 2.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
+                UIView.animateWithDuration( 1.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: UIViewAnimationOptions(rawValue: 0), animations: { () -> Void in
                     self.messageLabel.alpha = 1.0
                     }, completion: { (_) -> Void in
                         NSNotificationCenter.defaultCenter().postNotificationName(JYSwitchRootViewControllerKey, object: true)

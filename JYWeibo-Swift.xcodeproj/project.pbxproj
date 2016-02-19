@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4503C0161C6A22B9002E6A7E /* StatusTableViewBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503C0151C6A22B9002E6A7E /* StatusTableViewBottomView.swift */; };
+		4503C01C1C6A25CB002E6A7E /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503C01B1C6A25CB002E6A7E /* StatusTableViewCell.swift */; };
+		4503C01E1C6A2663002E6A7E /* StatusTableViewTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503C01D1C6A2663002E6A7E /* StatusTableViewTopView.swift */; };
+		4503C0201C6A26A0002E6A7E /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503C01F1C6A26A0002E6A7E /* StatusPictureView.swift */; };
+		4503C0291C6A2864002E6A7E /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503C0261C6A2864002E6A7E /* String+Category.swift */; };
+		4503C02A1C6A2864002E6A7E /* UIButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503C0271C6A2864002E6A7E /* UIButton+Category.swift */; };
+		4503C02B1C6A2864002E6A7E /* UILabel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503C0281C6A2864002E6A7E /* UILabel+Category.swift */; };
+		4503C02D1C6A28CF002E6A7E /* NSDate+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4503C02C1C6A28CF002E6A7E /* NSDate+Category.swift */; };
 		4504D9481C4E70B6006AE185 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504D9471C4E70B6006AE185 /* AppDelegate.swift */; };
 		4504D94F1C4E70B6006AE185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4504D94E1C4E70B6006AE185 /* Assets.xcassets */; };
 		4504D95D1C4E70B6006AE185 /* JYWeibo_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504D95C1C4E70B6006AE185 /* JYWeibo_SwiftTests.swift */; };
@@ -21,7 +29,6 @@
 		45174B1D1C5A5EE500B6545C /* PopoverPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45174B1C1C5A5EE500B6545C /* PopoverPresentationController.swift */; };
 		45174B251C5A75FD00B6545C /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45174B241C5A75FD00B6545C /* PopoverAnimator.swift */; };
 		452B2B661C5D25B800B6D083 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B651C5D25B800B6D083 /* UserAccount.swift */; };
-		452B2B681C5D26CD00B6D083 /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B671C5D26CD00B6D083 /* String+Category.swift */; };
 		452B2B6B1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B6A1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift */; };
 		452B2B6D1C5DBFBF00B6D083 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B6C1C5DBFBF00B6D083 /* WelcomeViewController.swift */; };
 		458AFFED1C5AEFB4000CAF1C /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */; };
@@ -51,6 +58,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4503C0151C6A22B9002E6A7E /* StatusTableViewBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewBottomView.swift; sourceTree = "<group>"; };
+		4503C01B1C6A25CB002E6A7E /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
+		4503C01D1C6A2663002E6A7E /* StatusTableViewTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewTopView.swift; sourceTree = "<group>"; };
+		4503C01F1C6A26A0002E6A7E /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
+		4503C0261C6A2864002E6A7E /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
+		4503C0271C6A2864002E6A7E /* UIButton+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Category.swift"; sourceTree = "<group>"; };
+		4503C0281C6A2864002E6A7E /* UILabel+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Category.swift"; sourceTree = "<group>"; };
+		4503C02C1C6A28CF002E6A7E /* NSDate+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Category.swift"; sourceTree = "<group>"; };
 		4504D9441C4E70B6006AE185 /* JYWeibo-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JYWeibo-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4504D9471C4E70B6006AE185 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4504D94E1C4E70B6006AE185 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,7 +86,6 @@
 		45174B1C1C5A5EE500B6545C /* PopoverPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationController.swift; sourceTree = "<group>"; };
 		45174B241C5A75FD00B6545C /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		452B2B651C5D25B800B6D083 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
-		452B2B671C5D26CD00B6D083 /* String+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Category.swift"; path = "JYWeibo-Swift/Classes/OAuth/String+Category.swift"; sourceTree = SOURCE_ROOT; };
 		452B2B6A1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewfeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		452B2B6C1C5DBFBF00B6D083 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +125,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4503C0251C6A2864002E6A7E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				4503C0261C6A2864002E6A7E /* String+Category.swift */,
+				4503C0271C6A2864002E6A7E /* UIButton+Category.swift */,
+				4503C0281C6A2864002E6A7E /* UILabel+Category.swift */,
+				4503C02C1C6A28CF002E6A7E /* NSDate+Category.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		4504D93B1C4E70B6006AE185 = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +198,7 @@
 				4504D9791C4E72D1006AE185 /* Main */,
 				4504D97A1C4E72D1006AE185 /* Message */,
 				4504D97B1C4E72D1006AE185 /* Profile */,
-				4504D97C1C4E72D1006AE185 /* Tools */,
+				4503C0251C6A2864002E6A7E /* Tools */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -202,6 +227,10 @@
 				4504D98B1C4E8142006AE185 /* HomeViewController.swift */,
 				45C71FE71C5FA9510043BB47 /* Status.swift */,
 				45C71FE91C5FA9740043BB47 /* User.swift */,
+				4503C0151C6A22B9002E6A7E /* StatusTableViewBottomView.swift */,
+				4503C01B1C6A25CB002E6A7E /* StatusTableViewCell.swift */,
+				4503C01D1C6A2663002E6A7E /* StatusTableViewTopView.swift */,
+				4503C01F1C6A26A0002E6A7E /* StatusPictureView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -230,14 +259,6 @@
 				4504D98F1C4E8156006AE185 /* ProfileViewController.swift */,
 			);
 			path = Profile;
-			sourceTree = "<group>";
-		};
-		4504D97C1C4E72D1006AE185 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				452B2B671C5D26CD00B6D083 /* String+Category.swift */,
-			);
-			path = Tools;
 			sourceTree = "<group>";
 		};
 		45174B171C5A5A5F00B6545C /* Popover */ = {
@@ -468,12 +489,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				452B2B681C5D26CD00B6D083 /* String+Category.swift in Sources */,
 				45A570CC1C5CB60D005E3A3E /* OAuthViewController.swift in Sources */,
 				4504D98C1C4E8142006AE185 /* HomeViewController.swift in Sources */,
+				4503C01C1C6A25CB002E6A7E /* StatusTableViewCell.swift in Sources */,
 				4504D9801C4E7353006AE185 /* MainViewController.swift in Sources */,
 				458AFFED1C5AEFB4000CAF1C /* PopoverViewController.swift in Sources */,
+				4503C02D1C6A28CF002E6A7E /* NSDate+Category.swift in Sources */,
 				4504D98A1C4E8138006AE185 /* DiscoverViewController.swift in Sources */,
+				4503C01E1C6A2663002E6A7E /* StatusTableViewTopView.swift in Sources */,
 				452B2B6B1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift in Sources */,
 				4504D9921C4FCCBB006AE185 /* BaseTableViewController.swift in Sources */,
 				45C71FEA1C5FA9740043BB47 /* User.swift in Sources */,
@@ -481,12 +504,17 @@
 				452B2B6D1C5DBFBF00B6D083 /* WelcomeViewController.swift in Sources */,
 				45174B1D1C5A5EE500B6545C /* PopoverPresentationController.swift in Sources */,
 				45174B251C5A75FD00B6545C /* PopoverAnimator.swift in Sources */,
+				4503C0291C6A2864002E6A7E /* String+Category.swift in Sources */,
 				4504D98E1C4E814C006AE185 /* MessageViewController.swift in Sources */,
 				4504D9481C4E70B6006AE185 /* AppDelegate.swift in Sources */,
 				4504D9941C4FCFAA006AE185 /* VisitorView.swift in Sources */,
+				4503C02B1C6A2864002E6A7E /* UILabel+Category.swift in Sources */,
 				45C2A7A01C567790001E3CD7 /* TitleButton.swift in Sources */,
+				4503C02A1C6A2864002E6A7E /* UIButton+Category.swift in Sources */,
+				4503C0201C6A26A0002E6A7E /* StatusPictureView.swift in Sources */,
 				45C2A79E1C56712D001E3CD7 /* UIBarButtonItem+Category.swift in Sources */,
 				45C71FE81C5FA9510043BB47 /* Status.swift in Sources */,
+				4503C0161C6A22B9002E6A7E /* StatusTableViewBottomView.swift in Sources */,
 				452B2B661C5D25B800B6D083 /* UserAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -612,6 +640,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "JYWeibo-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.Jatstar.JYWeibo-Swift";
@@ -626,6 +658,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "JYWeibo-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.Jatstar.JYWeibo-Swift";
