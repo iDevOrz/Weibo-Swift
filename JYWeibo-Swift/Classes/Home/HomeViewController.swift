@@ -8,8 +8,6 @@
 
 import UIKit
 
-let JYHomeVCCellReuseIdentifier = "JYHomeVCCellReuseIdentifier"
-
 class HomeViewController: BaseTableViewController {
     
     var statuses: [Status]?
@@ -31,7 +29,8 @@ class HomeViewController: BaseTableViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorDismissNotification, object: nil)
         
-        tableView.registerClass(StatusTableViewCell.self, forCellReuseIdentifier: JYHomeVCCellReuseIdentifier)
+        tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
+        tableView.registerClass(StatusForwardTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.ForwardCell.rawValue)
         tableView.separatorStyle = .None
         
         loadData()
@@ -107,11 +106,13 @@ extension HomeViewController
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(JYHomeVCCellReuseIdentifier, forIndexPath: indexPath) as! StatusTableViewCell
+        
         let status = statuses![indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(status), forIndexPath: indexPath) as! StatusTableViewCell
         cell.status = status
         return cell
     }
+    
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let status = statuses![indexPath.row]
@@ -121,8 +122,9 @@ extension HomeViewController
             return height
         }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(JYHomeVCCellReuseIdentifier) as! StatusTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(status)) as! StatusTableViewCell
         
+        // 4.拿到对应行的行高
         let rowHeight = cell.rowHeight(status)
         
         rowCache[status.id] = rowHeight

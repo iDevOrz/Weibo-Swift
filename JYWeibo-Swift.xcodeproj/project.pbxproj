@@ -31,6 +31,8 @@
 		452B2B661C5D25B800B6D083 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B651C5D25B800B6D083 /* UserAccount.swift */; };
 		452B2B6B1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B6A1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift */; };
 		452B2B6D1C5DBFBF00B6D083 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B2B6C1C5DBFBF00B6D083 /* WelcomeViewController.swift */; };
+		457F91741C79EF460060A1D8 /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457F91731C79EF460060A1D8 /* StatusNormalTableViewCell.swift */; };
+		457F91761C79EFFB0060A1D8 /* StatusForwardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457F91751C79EFFB0060A1D8 /* StatusForwardTableViewCell.swift */; };
 		458AFFED1C5AEFB4000CAF1C /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */; };
 		45A570CC1C5CB60D005E3A3E /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */; };
 		45C2A79E1C56712D001E3CD7 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */; };
@@ -88,6 +90,8 @@
 		452B2B651C5D25B800B6D083 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		452B2B6A1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewfeatureCollectionViewController.swift; sourceTree = "<group>"; };
 		452B2B6C1C5DBFBF00B6D083 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		457F91731C79EF460060A1D8 /* StatusNormalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusNormalTableViewCell.swift; sourceTree = "<group>"; };
+		457F91751C79EFFB0060A1D8 /* StatusForwardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusForwardTableViewCell.swift; sourceTree = "<group>"; };
 		458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Category.swift"; sourceTree = "<group>"; };
@@ -225,12 +229,14 @@
 			children = (
 				45174B171C5A5A5F00B6545C /* Popover */,
 				4504D98B1C4E8142006AE185 /* HomeViewController.swift */,
+				4503C01B1C6A25CB002E6A7E /* StatusTableViewCell.swift */,
+				457F91731C79EF460060A1D8 /* StatusNormalTableViewCell.swift */,
+				457F91751C79EFFB0060A1D8 /* StatusForwardTableViewCell.swift */,
+				4503C01D1C6A2663002E6A7E /* StatusTableViewTopView.swift */,
+				4503C0151C6A22B9002E6A7E /* StatusTableViewBottomView.swift */,
+				4503C01F1C6A26A0002E6A7E /* StatusPictureView.swift */,
 				45C71FE71C5FA9510043BB47 /* Status.swift */,
 				45C71FE91C5FA9740043BB47 /* User.swift */,
-				4503C0151C6A22B9002E6A7E /* StatusTableViewBottomView.swift */,
-				4503C01B1C6A25CB002E6A7E /* StatusTableViewCell.swift */,
-				4503C01D1C6A2663002E6A7E /* StatusTableViewTopView.swift */,
-				4503C01F1C6A26A0002E6A7E /* StatusPictureView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 				4504D9801C4E7353006AE185 /* MainViewController.swift in Sources */,
 				458AFFED1C5AEFB4000CAF1C /* PopoverViewController.swift in Sources */,
 				4503C02D1C6A28CF002E6A7E /* NSDate+Category.swift in Sources */,
+				457F91741C79EF460060A1D8 /* StatusNormalTableViewCell.swift in Sources */,
 				4504D98A1C4E8138006AE185 /* DiscoverViewController.swift in Sources */,
 				4503C01E1C6A2663002E6A7E /* StatusTableViewTopView.swift in Sources */,
 				452B2B6B1C5DB8F000B6D083 /* NewfeatureCollectionViewController.swift in Sources */,
@@ -505,6 +512,7 @@
 				45174B1D1C5A5EE500B6545C /* PopoverPresentationController.swift in Sources */,
 				45174B251C5A75FD00B6545C /* PopoverAnimator.swift in Sources */,
 				4503C0291C6A2864002E6A7E /* String+Category.swift in Sources */,
+				457F91761C79EFFB0060A1D8 /* StatusForwardTableViewCell.swift in Sources */,
 				4504D98E1C4E814C006AE185 /* MessageViewController.swift in Sources */,
 				4504D9481C4E70B6006AE185 /* AppDelegate.swift in Sources */,
 				4504D9941C4FCFAA006AE185 /* VisitorView.swift in Sources */,

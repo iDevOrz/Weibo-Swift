@@ -60,9 +60,15 @@ class Status: NSObject {
     }
     /// 保存当前微博所有配图的URL
     var storedPicURLS: [NSURL]?
-    
     /// 用户信息
     var user: User?
+    /// 转发微博
+    var retweeted_status: Status?
+    /// 配图的URL数组
+    var pictureURLS:[NSURL]?
+        {
+            return retweeted_status != nil ? retweeted_status?.storedPicURLS : storedPicURLS
+    }
     
     class func loadStatuses(finished: (models:[Status]?, error:NSError?)->()){
         let params = ["access_token": UserAccount.loadAccount()!.access_token!]
@@ -87,12 +93,12 @@ class Status: NSObject {
         
         for status in list
         {
-            guard let _ = status.storedPicURLS else
+            guard let _ = status.pictureURLS else
             {
                 continue
             }
             
-            for url in status.storedPicURLS!
+            for url in status.pictureURLS!
             {
                 dispatch_group_enter(group)
                 
@@ -133,6 +139,12 @@ class Status: NSObject {
         if "user" == key
         {
             user = User(dict: value as! [String : AnyObject])
+            return
+        }
+        
+        if "retweeted_status" == key
+        {
+            retweeted_status = Status(dict: value as! [String : AnyObject])
             return
         }
         

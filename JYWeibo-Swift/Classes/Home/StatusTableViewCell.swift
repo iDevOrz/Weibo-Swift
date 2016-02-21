@@ -9,21 +9,31 @@
 import UIKit
 
 let JYPictureViewCellReuseIdentifier = "JYPictureViewCellReuseIdentifier"
+
+enum StatusTableViewCellIdentifier: String
+{
+    case NormalCell = "NormalCell"
+    case ForwardCell = "ForwardCell"
+    static func cellID(status: Status) ->String
+    {
+        return status.retweeted_status != nil ? ForwardCell.rawValue : NormalCell.rawValue
+    }
+}
+
 class StatusTableViewCell: UITableViewCell {
     
-    private lazy var pictureSize: CGSize = CGSizeZero
+    lazy var pictureSize: CGSize = CGSizeZero
     var status: Status?
         {
         didSet{
             topView.status = status
             contentLabel.text = status?.text
-            pictureView.status = status
+            pictureView.status = status?.retweeted_status != nil ? status?.retweeted_status :  status
             pictureSize = pictureView.calculateImageSize()
             pictureView.snp_updateConstraints { (make) -> Void in
                 make.height.equalTo(pictureSize.height)
                 make.width.equalTo(pictureSize.width)
             }
-            
         }
     }
     
@@ -33,7 +43,7 @@ class StatusTableViewCell: UITableViewCell {
         setupUI()
     }
     
-    private func setupUI()
+    func setupUI()
     {
         
         
@@ -56,10 +66,6 @@ class StatusTableViewCell: UITableViewCell {
             
         }
         
-        pictureView.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(contentLabel.snp_bottom).offset(10)
-            make.left.equalTo(contentLabel.snp_left)
-        }
         
         footerView.snp_makeConstraints { (make) -> Void in
             make.width.equalTo(width)
@@ -80,7 +86,7 @@ class StatusTableViewCell: UITableViewCell {
     
     private lazy var topView: StatusTableViewTopView = StatusTableViewTopView()
     
-    private lazy var contentLabel: UILabel =
+    lazy var contentLabel: UILabel =
     {
         let label = UILabel.createLabel(UIColor.darkGrayColor(), fontSize: 15)
         label.numberOfLines = 0
@@ -88,9 +94,9 @@ class StatusTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var pictureView: StatusPictureView = StatusPictureView()
+    lazy var pictureView: StatusPictureView = StatusPictureView()
     
-    private lazy var footerView: StatusTableViewBottomView = StatusTableViewBottomView()
+    lazy var footerView: StatusTableViewBottomView = StatusTableViewBottomView()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
