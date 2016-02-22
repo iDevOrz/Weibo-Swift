@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Refresher
 
 class HomeViewController: BaseTableViewController {
     
@@ -32,6 +33,9 @@ class HomeViewController: BaseTableViewController {
         tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
         tableView.registerClass(StatusForwardTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.ForwardCell.rawValue)
         tableView.separatorStyle = .None
+        
+        refreshControl = HomeRefreshControl()
+        refreshControl?.addTarget(self, action: "loadData", forControlEvents: UIControlEvents.ValueChanged)
         
         loadData()
     }
@@ -88,7 +92,6 @@ class HomeViewController: BaseTableViewController {
         print(__FUNCTION__)
        print(UserAccount.loadAccount())
     }
-
 
     var rowCache: [Int: CGFloat] = [Int: CGFloat]()
     

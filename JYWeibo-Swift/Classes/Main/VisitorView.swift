@@ -17,7 +17,6 @@ protocol VisitorViewDelegate:NSObjectProtocol{
 }
 class VisitorView: UIView {
     
-    //代理 必须用week修饰 避免循环引用
     weak var delegate:VisitorViewDelegate?
     
     
@@ -137,12 +136,10 @@ class VisitorView: UIView {
         
     }
     
-    //MARK: 注册按钮的点击事件
     func registerButtonClick(){
         delegate?.registerBtnClick()
     }
     
-    //:MARK: 登陆按钮的点击时间
     func loginButtonClick(){
         delegate?.loginBtnDidClick()
     }
