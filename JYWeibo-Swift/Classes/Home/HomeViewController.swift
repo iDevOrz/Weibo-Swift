@@ -54,15 +54,59 @@ class HomeViewController: BaseTableViewController {
         navigationItem.titleView = titleBtn
     }
     
-    private func loadData()
+    lazy var pullupRefreshFlag:Bool = false
+    
+    func loadData()
     {
-        Status.loadStatuses { (models, error) -> () in
+        var since_id = statuses?.first?.id ?? 0
+        
+        var max_id = 0
+        if pullupRefreshFlag
+        {
+            since_id = 0
+            max_id = statuses?.last?.id ?? 0
+        }
+        
+        Status.loadStatuses(since_id,max_id: max_id) { (models, error) -> () in
+            
+            self.refreshControl?.endRefreshing()
             
             if error != nil
             {
                 return
             }
-            self.statuses = models
+            if since_id > 0
+            {
+                self.statuses = models! + self.statuses!
+                self.showNewStatusCount(models?.count ?? 0)
+            }else if max_id > 0{
+                self.statuses = self.statuses! + models!
+//                print("加载更多")
+                
+            }else{
+                self.statuses = models
+            }
+        }
+    }
+    
+    private func showNewStatusCount(count : Int)
+    {
+        if count == 0{
+//            print("没有新微博")
+            return;
+        }
+        newStatusLabel.hidden = false
+        newStatusLabel.text = "\(count)条新微博"
+        
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            self.newStatusLabel.transform = CGAffineTransformMakeTranslation(0, self.newStatusLabel.frame.height)
+            
+            }) { (_) -> Void in
+                UIView.animateWithDuration(1, animations: { () -> Void in
+                    self.newStatusLabel.transform = CGAffineTransformIdentity
+                    }, completion: { (_) -> Void in
+                        self.newStatusLabel.hidden = true
+                })
         }
     }
     
@@ -82,7 +126,22 @@ class HomeViewController: BaseTableViewController {
         print(__FUNCTION__)
     }
     
+    /// 菜单栏动画
     private lazy var popoverAnimator = PopoverAnimator()
+    
+    /// 下拉刷新提醒
+    private lazy var newStatusLabel: UILabel =
+    {
+        let label = UILabel()
+        let height: CGFloat = 44
+        label.frame =  CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.width, height: height)
+        label.backgroundColor = UIColor.orangeColor()
+        label.textColor = UIColor.whiteColor()
+        label.textAlignment = NSTextAlignment.Center
+        self.navigationController?.navigationBar.insertSubview(label, atIndex: 0)
+        label.hidden = true
+        return label
+    }()
     
     func leftItemClick(){
         print(__FUNCTION__)
@@ -113,6 +172,14 @@ extension HomeViewController
         let status = statuses![indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier(StatusTableViewCellIdentifier.cellID(status), forIndexPath: indexPath) as! StatusTableViewCell
         cell.status = status
+        
+        let count = statuses?.count ?? 0
+        if indexPath.row == (count - 5)
+        {
+            // 滚动即将触底时,加载更多数据
+            pullupRefreshFlag = true
+            loadData()
+        }
         return cell
     }
     

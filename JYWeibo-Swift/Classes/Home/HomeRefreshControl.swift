@@ -77,18 +77,44 @@ class HomeRefreshControl: UIRefreshControl {
 class HomeRefreshView: UIView
 {
     lazy var arrowIcon: UIImageView! = UIImageView(image: UIImage(named: "tableview_pull_refresh"))
+    lazy var tipLabel: UILabel! = {
+        let label = UILabel()
+        label.textColor = UIColor.grayColor()
+        label.text = "下拉刷新~~"
+        return label
+    }()
     
-    lazy var tipView: UIView! = UIView()
+    lazy var tipView: UIView! = {
+        let view = UIView()
+        view.backgroundColor = UIColor.whiteColor()
+        view.addSubview(self.arrowIcon)
+        view.addSubview(self.tipLabel)
+        
+        self.arrowIcon.snp_makeConstraints { (make) -> Void in
+            make.width.height.equalTo(32)
+            make.centerY.equalTo(view)
+            make.left.equalTo(view).offset(8)
+        }
+        
+        self.tipLabel.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(self.arrowIcon.snp_right).offset(8)
+            make.top.bottom.equalTo(view)
+            make.right.equalTo(view)
+        }
+        return view
+    }()
     
-    lazy var loadingView: UIImageView! = UIImageView(image: UIImage(named: "tableview_pull_refresh@2x副本"))
+    lazy var loadingView: UIImageView! = UIImageView(image: UIImage(named: "tableview_loading"))
     private var loadingLabel: UILabel = {
         let label = UILabel()
-        label.text = "正在刷新~~~"
+        label.textColor = UIColor.grayColor()
+        label.text = "加载中~~~"
         return label
     }()
     
     func rotaionArrowIcon(flag: Bool)
     {
+        tipLabel.text = flag ? "释放刷新~~~":"下拉刷新~~~"
         var angle = M_PI
         angle += flag ? -0.01 : 0.01
         UIView.animateWithDuration(0.2) { () -> Void in
@@ -118,14 +144,10 @@ class HomeRefreshView: UIView
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor.whiteColor()
         addSubview(loadingView)
         addSubview(loadingLabel)
         addSubview(tipView)
-        
-        self.snp_makeConstraints { (make) -> Void in
-            make.height.equalTo(170)
-            make.width.equalTo(60)
-        }
         
         loadingView.snp_makeConstraints { (make) -> Void in
             make.width.height.equalTo(32)
@@ -142,30 +164,8 @@ class HomeRefreshView: UIView
         tipView.snp_makeConstraints { (make) -> Void in
             make.top.bottom.left.right.equalTo(self)
         }
-        
     }
     
-    private func createTipView() ->UIView{
-        let view = UIView()
-        let loadingLabel = UILabel()
-        loadingLabel.text = "下拉刷新~~~"
-        view.addSubview(arrowIcon)
-        view.addSubview(loadingLabel)
-        
-        arrowIcon.snp_makeConstraints { (make) -> Void in
-            make.width.height.equalTo(32)
-            make.centerY.equalTo(view)
-            make.left.equalTo(view).offset(8)
-        }
-        
-        loadingLabel.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(arrowIcon.snp_right).offset(8)
-            make.top.bottom.equalTo(view)
-            make.right.equalTo(view)
-        }
-        return view
-    }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
