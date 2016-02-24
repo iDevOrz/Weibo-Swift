@@ -29,6 +29,7 @@ class HomeViewController: BaseTableViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorDismissNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "presentPhotoBrowserView:", name: JYStatusPictureViewSelected, object: nil)
         
         tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
         tableView.registerClass(StatusForwardTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.ForwardCell.rawValue)
@@ -38,6 +39,27 @@ class HomeViewController: BaseTableViewController {
         refreshControl?.addTarget(self, action: "loadData", forControlEvents: UIControlEvents.ValueChanged)
         
         loadData()
+    }
+    
+    func presentPhotoBrowserView(notify: NSNotification)
+    {
+        guard let indexPath = notify.userInfo![JYStatusPictureViewIndexKey] as? NSIndexPath else
+        {
+            print("indexPath为空")
+            return
+        }
+        
+        guard let urls = notify.userInfo![JYStatusPictureViewURLsKey] as? [NSURL] else
+        {
+            print("配图为空")
+            return
+        }
+        
+        // 1.创建图片浏览器
+        let vc = PhotoBrowserController(index: indexPath.item, urls: urls)
+        
+        // 2.显示图片浏览器
+        presentViewController(vc, animated: true, completion: nil)
     }
     
     deinit{

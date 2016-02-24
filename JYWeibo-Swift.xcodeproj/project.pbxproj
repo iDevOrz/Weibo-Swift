@@ -36,6 +36,8 @@
 		458AFFED1C5AEFB4000CAF1C /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */; };
 		45A570CC1C5CB60D005E3A3E /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */; };
 		45AD2F7A1C7B58AE00CB4B8C /* HomeRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD2F791C7B58AE00CB4B8C /* HomeRefreshControl.swift */; };
+		45AD2F7D1C7DFD5F00CB4B8C /* PhotoBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD2F7C1C7DFD5F00CB4B8C /* PhotoBrowserController.swift */; };
+		45AD2F7F1C7DFDCB00CB4B8C /* PhotoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD2F7E1C7DFDCB00CB4B8C /* PhotoBrowserCell.swift */; };
 		45C2A79E1C56712D001E3CD7 /* UIBarButtonItem+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */; };
 		45C2A7A01C567790001E3CD7 /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2A79F1C567790001E3CD7 /* TitleButton.swift */; };
 		45C71FE81C5FA9510043BB47 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C71FE71C5FA9510043BB47 /* Status.swift */; };
@@ -96,6 +98,8 @@
 		458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		45AD2F791C7B58AE00CB4B8C /* HomeRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRefreshControl.swift; sourceTree = "<group>"; };
+		45AD2F7C1C7DFD5F00CB4B8C /* PhotoBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserController.swift; sourceTree = "<group>"; };
+		45AD2F7E1C7DFDCB00CB4B8C /* PhotoBrowserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserCell.swift; sourceTree = "<group>"; };
 		45C2A79D1C56712D001E3CD7 /* UIBarButtonItem+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Category.swift"; sourceTree = "<group>"; };
 		45C2A79F1C567790001E3CD7 /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		45C71FE71C5FA9510043BB47 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 		4504D9781C4E72D1006AE185 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				45AD2F7B1C7DFD4300CB4B8C /* PhotoBrowser */,
 				45174B171C5A5A5F00B6545C /* Popover */,
 				4504D98B1C4E8142006AE185 /* HomeViewController.swift */,
 				45AD2F791C7B58AE00CB4B8C /* HomeRefreshControl.swift */,
@@ -296,6 +301,15 @@
 				452B2B651C5D25B800B6D083 /* UserAccount.swift */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		45AD2F7B1C7DFD4300CB4B8C /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				45AD2F7C1C7DFD5F00CB4B8C /* PhotoBrowserController.swift */,
+				45AD2F7E1C7DFDCB00CB4B8C /* PhotoBrowserCell.swift */,
+			);
+			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
 		695F395C6C8A3A22BFD62099 /* Frameworks */ = {
@@ -517,6 +531,7 @@
 				4503C0291C6A2864002E6A7E /* String+Category.swift in Sources */,
 				457F91761C79EFFB0060A1D8 /* StatusForwardTableViewCell.swift in Sources */,
 				4504D98E1C4E814C006AE185 /* MessageViewController.swift in Sources */,
+				45AD2F7D1C7DFD5F00CB4B8C /* PhotoBrowserController.swift in Sources */,
 				4504D9481C4E70B6006AE185 /* AppDelegate.swift in Sources */,
 				4504D9941C4FCFAA006AE185 /* VisitorView.swift in Sources */,
 				4503C02B1C6A2864002E6A7E /* UILabel+Category.swift in Sources */,
@@ -528,6 +543,7 @@
 				4503C0161C6A22B9002E6A7E /* StatusTableViewBottomView.swift in Sources */,
 				45AD2F7A1C7B58AE00CB4B8C /* HomeRefreshControl.swift in Sources */,
 				452B2B661C5D25B800B6D083 /* UserAccount.swift in Sources */,
+				45AD2F7F1C7DFDCB00CB4B8C /* PhotoBrowserCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

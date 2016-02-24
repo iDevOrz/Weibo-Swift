@@ -49,17 +49,25 @@ class Status: NSObject {
         {
         didSet{
             storedPicURLS = [NSURL]()
+            storedLargePicURLS = [NSURL]()
             for dict in pic_urls!
             {
                 if let urlStr = dict["thumbnail_pic"]
                 {
                     storedPicURLS?.append(NSURL(string: urlStr as! String)!)
+                    
+                    let largeURLStr = urlStr.stringByReplacingOccurrencesOfString("thumbnail", withString: "large")
+                    storedLargePicURLS!.append(NSURL(string: largeURLStr)!)
                 }
             }
         }
     }
-    /// 保存当前微博所有配图的URL
+    /// 配图的URL
     var storedPicURLS: [NSURL]?
+    
+    /// 配图的大图URL
+    var storedLargePicURLS: [NSURL]?
+    
     /// 用户信息
     var user: User?
     /// 转发微博

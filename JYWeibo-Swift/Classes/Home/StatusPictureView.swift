@@ -24,6 +24,7 @@ class StatusPictureView: UICollectionView {
         
         registerClass(PictureViewCell.self, forCellWithReuseIdentifier: JYPictureViewCellReuseIdentifier)
         dataSource = self
+        delegate = self
         pictureLayout.minimumInteritemSpacing = 5
         pictureLayout.minimumLineSpacing = 5
         
@@ -73,6 +74,11 @@ class StatusPictureView: UICollectionView {
             {
             didSet{
                 iconImageView.kf_setImageWithURL(imageURL!)
+                
+                if (imageURL!.absoluteString as NSString).pathExtension.lowercaseString == "gif"
+                {
+                    gifImageView.hidden = false
+                }
             }
         }
         
@@ -84,13 +90,22 @@ class StatusPictureView: UICollectionView {
         private func setupUI()
         {
             contentView.addSubview(iconImageView)
+            iconImageView.addSubview(gifImageView)
             iconImageView.snp_makeConstraints { (make) -> Void in
                 make.top.bottom.equalTo(contentView)
                 make.right.left.equalTo(contentView)
             }
+            
+            
         }
         
         private lazy var iconImageView:UIImageView = UIImageView()
+        private lazy var gifImageView: UIImageView = {
+            let iv = UIImageView(image: UIImage(named: "缺少图片"))
+            iv.hidden = true
+            return iv
+        }()
+        
         
         required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
@@ -99,8 +114,14 @@ class StatusPictureView: UICollectionView {
     
 }
 
+let JYStatusPictureViewSelected = "JYStatusPictureViewSelected"
+/// 当前选中图片的索引
+let JYStatusPictureViewIndexKey = "JYStatusPictureViewIndexKey"
+/// 本条所有大图的数组
+let JYStatusPictureViewURLsKey = "JYStatusPictureViewURLsKey"
 
-extension StatusPictureView: UICollectionViewDataSource
+
+extension StatusPictureView: UICollectionViewDataSource ,UICollectionViewDelegate
 {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return status?.storedPicURLS?.count ?? 0
@@ -112,6 +133,11 @@ extension StatusPictureView: UICollectionViewDataSource
         cell.imageURL = status?.storedPicURLS![indexPath.item]
         
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let info = [JYStatusPictureViewIndexKey : indexPath, JYStatusPictureViewURLsKey : status!.storedLargePicURLS!]
+        NSNotificationCenter.defaultCenter().postNotificationName(JYStatusPictureViewSelected, object: self, userInfo: info)
     }
     
 }
