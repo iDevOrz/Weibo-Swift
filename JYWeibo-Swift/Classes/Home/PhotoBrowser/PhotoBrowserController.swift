@@ -24,13 +24,11 @@ class PhotoBrowserController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
-        // 初始化UI
         setupUI()
     }
     
     private func setupUI(){
         
-        // 1.添加子控件
         view.addSubview(collectionView)
         view.addSubview(closeBtn)
         view.addSubview(saveBtn)
@@ -48,10 +46,6 @@ class PhotoBrowserController: UIViewController {
             make.bottom.equalTo(view).offset(-10)
             
         }
-        
-        // 2.布局子控件
-//        closeBtn.xmg_AlignInner(type: XMG_AlignType.BottomLeft, referView: view, size: CGSize(width: 100, height: 35), offset: CGPoint(x: 10, y: -10))
-//        saveBtn.xmg_AlignInner(type: XMG_AlignType.BottomRight, referView: view, size: CGSize(width: 100, height: 35), offset: CGPoint(x: -10, y: -10))
         collectionView.frame = UIScreen.mainScreen().bounds
         collectionView.dataSource = self
         collectionView.registerClass(PhotoBrowserCell.self, forCellWithReuseIdentifier: JYPhotoBrowserCellReuseIdentifier)
@@ -68,14 +62,10 @@ class PhotoBrowserController: UIViewController {
     }
     func save()
     {
-        // 1.拿到当前正在显示的cell
         let index = collectionView.indexPathsForVisibleItems().last!
         let cell = collectionView.cellForItemAtIndexPath(index) as! PhotoBrowserCell
-        // 2.保存图片
         let image = cell.iconView.image
         UIImageWriteToSavedPhotosAlbum(image!, self, "image:didFinishSavingWithError:contextInfo:", nil)
-        
-        // - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
     }
     func image(image:UIImage, didFinishSavingWithError error:NSError?, contextInfo:AnyObject){
         if error != nil

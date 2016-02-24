@@ -77,7 +77,7 @@ class StatusPictureView: UICollectionView {
                 
                 if (imageURL!.absoluteString as NSString).pathExtension.lowercaseString == "gif"
                 {
-                    gifImageView.hidden = false
+                    gifView.hidden = false
                 }
             }
         }
@@ -90,20 +90,30 @@ class StatusPictureView: UICollectionView {
         private func setupUI()
         {
             contentView.addSubview(iconImageView)
-            iconImageView.addSubview(gifImageView)
+            contentView.addSubview(gifView)
             iconImageView.snp_makeConstraints { (make) -> Void in
                 make.top.bottom.equalTo(contentView)
                 make.right.left.equalTo(contentView)
             }
             
-            
+            gifView.snp_makeConstraints { (make) -> Void in
+                make.right.equalTo(iconImageView.snp_right)
+                make.bottom.equalTo(iconImageView.snp_bottom)
+                make.height.equalTo(10)
+                make.width.equalTo(20)
+            }
         }
         
         private lazy var iconImageView:UIImageView = UIImageView()
-        private lazy var gifImageView: UIImageView = {
-            let iv = UIImageView(image: UIImage(named: "缺少图片"))
-            iv.hidden = true
-            return iv
+        private lazy var gifView: UILabel = {
+            let gifView = UILabel()
+            gifView.backgroundColor = UIColor ( red: 0.3406, green: 0.7527, blue: 0.9988, alpha: 0.729544974662162 )
+            gifView.textColor = UIColor.whiteColor()
+            gifView.text = "GIF"
+            gifView.textAlignment = .Center
+            gifView.font = UIFont.systemFontOfSize(8)
+            gifView.hidden = true
+            return gifView
         }()
         
         

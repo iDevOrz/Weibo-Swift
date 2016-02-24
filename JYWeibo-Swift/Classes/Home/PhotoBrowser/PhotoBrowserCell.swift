@@ -29,15 +29,6 @@ class PhotoBrowserCell: UICollectionViewCell {
                 
                 self.setImageViewPostion()
             }
-            
-//            iconView.sd_setImageWithURL(imageURL) { (image, _, _, _) -> Void in
-//                // 4.隐藏菊花
-//                self.activity.stopAnimating()
-//                
-//                // 5.调整图片的尺寸和位置
-//                self.setImageViewPostion()
-//                
-//            }
         }
     }
 
