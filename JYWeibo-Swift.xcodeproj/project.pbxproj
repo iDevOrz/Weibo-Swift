@@ -34,6 +34,7 @@
 		457F91741C79EF460060A1D8 /* StatusNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457F91731C79EF460060A1D8 /* StatusNormalTableViewCell.swift */; };
 		457F91761C79EFFB0060A1D8 /* StatusForwardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457F91751C79EFFB0060A1D8 /* StatusForwardTableViewCell.swift */; };
 		458AFFED1C5AEFB4000CAF1C /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */; };
+		459589891C7F4731000338FE /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459589881C7F4731000338FE /* ComposeViewController.swift */; };
 		45A570CC1C5CB60D005E3A3E /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */; };
 		45AD2F7A1C7B58AE00CB4B8C /* HomeRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD2F791C7B58AE00CB4B8C /* HomeRefreshControl.swift */; };
 		45AD2F7D1C7DFD5F00CB4B8C /* PhotoBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AD2F7C1C7DFD5F00CB4B8C /* PhotoBrowserController.swift */; };
@@ -96,6 +97,7 @@
 		457F91731C79EF460060A1D8 /* StatusNormalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusNormalTableViewCell.swift; sourceTree = "<group>"; };
 		457F91751C79EFFB0060A1D8 /* StatusForwardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusForwardTableViewCell.swift; sourceTree = "<group>"; };
 		458AFFEC1C5AEFB4000CAF1C /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		459589881C7F4731000338FE /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		45A570CB1C5CB60D005E3A3E /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		45AD2F791C7B58AE00CB4B8C /* HomeRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRefreshControl.swift; sourceTree = "<group>"; };
 		45AD2F7C1C7DFD5F00CB4B8C /* PhotoBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		4504D9751C4E72D1006AE185 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				459589871C7F4715000338FE /* Compose */,
 				452B2B691C5DB8B300B6D083 /* Newfeature */,
 				45A570CA1C5CB5D9005E3A3E /* OAuth */,
 				4504D9761C4E72D1006AE185 /* Common */,
@@ -292,6 +295,14 @@
 				452B2B6C1C5DBFBF00B6D083 /* WelcomeViewController.swift */,
 			);
 			path = Newfeature;
+			sourceTree = "<group>";
+		};
+		459589871C7F4715000338FE /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				459589881C7F4731000338FE /* ComposeViewController.swift */,
+			);
+			path = Compose;
 			sourceTree = "<group>";
 		};
 		45A570CA1C5CB5D9005E3A3E /* OAuth */ = {
@@ -518,6 +529,7 @@
 				4504D9801C4E7353006AE185 /* MainViewController.swift in Sources */,
 				458AFFED1C5AEFB4000CAF1C /* PopoverViewController.swift in Sources */,
 				4503C02D1C6A28CF002E6A7E /* NSDate+Category.swift in Sources */,
+				459589891C7F4731000338FE /* ComposeViewController.swift in Sources */,
 				457F91741C79EF460060A1D8 /* StatusNormalTableViewCell.swift in Sources */,
 				4504D98A1C4E8138006AE185 /* DiscoverViewController.swift in Sources */,
 				4503C01E1C6A2663002E6A7E /* StatusTableViewTopView.swift in Sources */,

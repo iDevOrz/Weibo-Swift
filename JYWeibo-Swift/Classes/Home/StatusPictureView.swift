@@ -89,6 +89,7 @@ class StatusPictureView: UICollectionView {
         
         private func setupUI()
         {
+            contentView.clipsToBounds = true
             contentView.addSubview(iconImageView)
             contentView.addSubview(gifView)
             iconImageView.snp_makeConstraints { (make) -> Void in
@@ -104,7 +105,11 @@ class StatusPictureView: UICollectionView {
             }
         }
         
-        private lazy var iconImageView:UIImageView = UIImageView()
+        private lazy var iconImageView:UIImageView = {
+            let imageView = UIImageView()
+            imageView.contentMode = .ScaleAspectFill
+            return imageView
+        }()
         private lazy var gifView: UILabel = {
             let gifView = UILabel()
             gifView.backgroundColor = UIColor ( red: 0.3406, green: 0.7527, blue: 0.9988, alpha: 0.729544974662162 )
@@ -141,7 +146,6 @@ extension StatusPictureView: UICollectionViewDataSource ,UICollectionViewDelegat
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(JYPictureViewCellReuseIdentifier, forIndexPath: indexPath) as! PictureViewCell
         
         cell.imageURL = status?.storedPicURLS![indexPath.item]
-        
         return cell
     }
     
