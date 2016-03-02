@@ -14,8 +14,11 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardChange:", name:UIKeyboardWillChangeFrameNotification , object: nil)
+        
         setupNav()
         setupInpuView()
+        setupToolbar()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -28,6 +31,20 @@ class ComposeViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         textView.resignFirstResponder()
+    }
+    
+    func keyboardChange(notify: NSNotification)
+    {
+        let value = notify.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        let rect = value.CGRectValue()
+        
+        toolbar.snp_updateConstraints { (make) -> Void in
+            make.bottom.equalTo(self.view.snp_bottom).offset(-rect.size.height)
+        }
+        let duration = notify.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
+        UIView.animateWithDuration(duration.doubleValue) { () -> Void in
+            self.view.setNeedsLayout()
+        }
     }
     
     private func setupInpuView()
@@ -79,6 +96,48 @@ class ComposeViewController: UIViewController {
         navigationItem.titleView = titleView
     }
     
+    private func setupToolbar()
+    {
+        view.addSubview(toolbar)
+
+        var items = [UIBarButtonItem]()
+        let itemSettings = [["imageName": "compose_toolbar_picture", "action": "selectPicture"],
+            
+            ["imageName": "compose_mentionbutton_background"],
+            
+            ["imageName": "compose_trendbutton_background"],
+            
+            ["imageName": "compose_emoticonbutton_background", "action": "inputEmoticon"],
+            
+            ["imageName": "compose_addbutton_background"]]
+        for dict in itemSettings
+        {
+            
+            let item = UIBarButtonItem(imageName: dict["imageName"]!, target: self, action: dict["action"])
+            items.append(item)
+            items.append(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil))
+        }
+        items.removeLast()
+        toolbar.items = items
+        
+        toolbar.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(self.view)
+            make.bottom.equalTo(self.view.snp_bottom)
+            make.left.equalTo(self.view.snp_left)
+            make.height.equalTo(44)
+        }
+    }
+    
+    func selectPicture()
+    {
+        print(__FUNCTION__)
+    }
+
+    func inputEmoticon()
+    {
+        print(__FUNCTION__)
+    }
+    
     func dismissVC()
     {
         dismissViewControllerAnimated(true, completion: nil)
@@ -112,6 +171,8 @@ class ComposeViewController: UIViewController {
         label.text = "分享新鲜事..."
         return label
     }()
+    
+    private lazy var toolbar: UIToolbar = UIToolbar()
 }
 
 extension ComposeViewController: UITextViewDelegate
