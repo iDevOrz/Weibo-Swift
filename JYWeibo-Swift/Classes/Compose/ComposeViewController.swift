@@ -11,10 +11,16 @@ import Alamofire
 
 class ComposeViewController: UIViewController {
     
+    private lazy var emoticonVC: EmoticonViewController = EmoticonViewController { [unowned self] (emoticon) -> () in
+        self.textView.insertEmoticon(emoticon)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardChange:", name:UIKeyboardWillChangeFrameNotification , object: nil)
+        
+        addChildViewController(emoticonVC)
         
         setupNav()
         setupInpuView()
@@ -135,7 +141,14 @@ class ComposeViewController: UIViewController {
 
     func inputEmoticon()
     {
-        print(__FUNCTION__)
+        textView.resignFirstResponder()
+        
+        // 2.设置inputView
+        textView.inputView = (textView.inputView == nil) ? emoticonVC.view : nil
+        
+        // 3.从新召唤出键盘
+        textView.becomeFirstResponder()
+        
     }
     
     func dismissVC()

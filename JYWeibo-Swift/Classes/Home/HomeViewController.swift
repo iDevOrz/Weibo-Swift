@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Refresher
 
 class HomeViewController: BaseTableViewController {
     
@@ -145,7 +144,6 @@ class HomeViewController: BaseTableViewController {
         
         
         presentViewController(popoverVC, animated: true, completion: nil)
-        print(__FUNCTION__)
     }
     
     /// 菜单栏动画

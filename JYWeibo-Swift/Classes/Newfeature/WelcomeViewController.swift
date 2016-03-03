@@ -34,7 +34,6 @@ class WelcomeViewController: UIViewController {
             make.top.equalTo(iconView.snp_bottom).offset(20)
             make.centerX.equalTo(view)
         }
-        // 头像
         if let iconUrl = UserAccount.loadAccount()?.avatar_large
         {
             let url = NSURL(string: iconUrl)!
@@ -62,7 +61,6 @@ class WelcomeViewController: UIViewController {
         
     }
     
-    // MARK: -懒加载
     private lazy var bgIV: UIImageView = UIImageView(image: UIImage(named: "ad_background"))
     
     private lazy var iconView: UIImageView = {

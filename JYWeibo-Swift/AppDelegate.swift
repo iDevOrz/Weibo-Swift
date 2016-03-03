@@ -57,9 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let sandboxVersion =  NSUserDefaults.standardUserDefaults().objectForKey("CFBundleShortVersionString") as? String ?? ""
 
-        if currentVersion != sandboxVersion
+        if currentVersion.compare(sandboxVersion) == NSComparisonResult.OrderedDescending
         {
-            //存储版本号
             NSUserDefaults.standardUserDefaults().setObject(currentVersion, forKey: "CFBundleShortVersionString")
             return true
         }
