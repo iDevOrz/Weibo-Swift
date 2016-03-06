@@ -4,7 +4,9 @@ Weibo by Swift2.0
 
 ## 效果图
 
-![]()
+![](https://github.com/Jatstar/Weibo-Swift/blob/master/1.gif)
+
+![](https://github.com/Jatstar/Weibo-Swift/blob/master/2.gif)
 
 ## 测试环境
 
@@ -30,3 +32,5 @@ Weibo by Swift2.0
 
 (更好的熟悉的Swift及其框架)
 
+
+### = =... 
