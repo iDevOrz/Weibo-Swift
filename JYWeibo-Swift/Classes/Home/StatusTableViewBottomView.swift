@@ -30,13 +30,13 @@ class StatusTableViewBottomView: UIView {
             make.height.equalTo(self).offset(-3)
             make.width.equalTo(unlikeBtn.snp_width)
         }
-        unlikeBtn.snp_makeConstraints { (make) -> Void in
+        commonBtn.snp_makeConstraints { (make) -> Void in
             make.height.width.top.equalTo(retweetBtn)
             make.left.equalTo(retweetBtn.snp_right)
         }
-        commonBtn.snp_makeConstraints { (make) -> Void in
-            make.height.width.top.equalTo(unlikeBtn)
-            make.left.equalTo(unlikeBtn.snp_right)
+        unlikeBtn.snp_makeConstraints { (make) -> Void in
+            make.height.width.top.equalTo(commonBtn)
+            make.left.equalTo(commonBtn.snp_right)
             make.right.equalTo(self)
         }
     }
