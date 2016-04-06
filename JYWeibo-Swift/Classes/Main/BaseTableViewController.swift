@@ -23,8 +23,8 @@ class BaseTableViewController: UITableViewController ,VisitorViewDelegate{
         view = visitorView
         
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: "registerBtnClick")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .Plain, target: self, action: "loginBtnDidClick")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .Plain, target: self, action: #selector(BaseTableViewController.registerBtnClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .Plain, target: self, action: #selector(BaseTableViewController.loginBtnDidClick))
         
     }
     
@@ -34,7 +34,7 @@ class BaseTableViewController: UITableViewController ,VisitorViewDelegate{
     }
     
     func registerBtnClick(){
-        print(__FUNCTION__)
+        print(#function)
     }
 
 }

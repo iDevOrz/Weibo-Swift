@@ -104,7 +104,7 @@ class VisitorView: UIView {
         let loginButton = UIButton()
         loginButton.setTitle("登陆", forState: .Normal)
         loginButton.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
-        loginButton.addTarget(self, action: "loginButtonClick", forControlEvents: .TouchUpInside)
+        loginButton.addTarget(self, action: #selector(VisitorView.loginButtonClick), forControlEvents: .TouchUpInside)
         loginButton.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: .Normal)
         return loginButton
     }()
@@ -113,7 +113,7 @@ class VisitorView: UIView {
         let registerButton = UIButton()
         registerButton.setTitle("注册", forState: .Normal)
         registerButton.setTitleColor(UIColor.orangeColor(), forState: .Normal)
-        registerButton.addTarget(self, action: "registerButtonClick", forControlEvents: .TouchUpInside)
+        registerButton.addTarget(self, action: #selector(VisitorView.registerButtonClick), forControlEvents: .TouchUpInside)
         registerButton.setBackgroundImage(UIImage(named: "common_button_white_disable"), forState: .Normal)
         return registerButton
     }()

@@ -109,7 +109,7 @@ class NewfeatureCell: UICollectionViewCell
         btn.setBackgroundImage(UIImage(named: "new_feature_button_highlighted"), forState: UIControlState.Highlighted)
         
         btn.hidden = true
-        btn.addTarget(self, action: "customBtnClick", forControlEvents: UIControlEvents.TouchUpInside)
+        btn.addTarget(self, action: #selector(NewfeatureCell.customBtnClick), forControlEvents: UIControlEvents.TouchUpInside)
         return btn
     }()
     

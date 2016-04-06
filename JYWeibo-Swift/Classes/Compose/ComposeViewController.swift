@@ -18,7 +18,7 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardChange:", name:UIKeyboardWillChangeFrameNotification , object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ComposeViewController.keyboardChange(_:)), name:UIKeyboardWillChangeFrameNotification , object: nil)
         
         addChildViewController(emoticonVC)
         
@@ -71,9 +71,9 @@ class ComposeViewController: UIViewController {
     
     private func setupNav()
     {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: UIBarButtonItemStyle.Plain, target: self, action: "dismissVC")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "关闭", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ComposeViewController.dismissVC))
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发送", style: UIBarButtonItemStyle.Plain, target: self, action: "sendStatus")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发送", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ComposeViewController.sendStatus))
         navigationItem.rightBarButtonItem?.enabled = false
         
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 32))
@@ -136,7 +136,7 @@ class ComposeViewController: UIViewController {
     
     func selectPicture()
     {
-        print(__FUNCTION__)
+        print(#function)
     }
 
     func inputEmoticon()

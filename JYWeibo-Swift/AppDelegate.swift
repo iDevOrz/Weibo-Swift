@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "switchRootViewController:", name: JYSwitchRootViewControllerKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.switchRootViewController(_:)), name: JYSwitchRootViewControllerKey, object: nil)
         
         UINavigationBar.appearance().tintColor = UIColor.orangeColor()
         UITabBar.appearance().tintColor = UIColor.orangeColor()
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let currentVersion = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
 
-        let sandboxVersion =  NSUserDefaults.standardUserDefaults().objectForKey("CFBundleShortVersionString") as? String ?? ""
+        let sandboxVersion =  NSUserDefaults.standardUserDefaults().objectForKey("CFBundleShortVersionString") as? String ?? "1.0"
 
         if currentVersion.compare(sandboxVersion) == NSComparisonResult.OrderedDescending
         {

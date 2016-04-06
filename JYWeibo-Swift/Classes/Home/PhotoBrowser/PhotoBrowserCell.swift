@@ -83,7 +83,7 @@ class PhotoBrowserCell: UICollectionViewCell {
         scrollview.delegate = self
         scrollview.maximumZoomScale = 2.0
         scrollview.minimumZoomScale = 0.5
-        let tap = UITapGestureRecognizer(target: self, action: "close")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(PhotoBrowserCell.close))
         iconView.addGestureRecognizer(tap)
         iconView.userInteractionEnabled = true
         

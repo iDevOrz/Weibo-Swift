@@ -69,7 +69,7 @@ class EmoticonPackage: NSObject {
                 index = 0
             }
             emoticons?.append(Emoticon(dict: dict, id: id!))
-            index++
+            index += 1
         }
     }
     

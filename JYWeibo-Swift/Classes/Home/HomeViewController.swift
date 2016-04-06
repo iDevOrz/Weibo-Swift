@@ -26,16 +26,16 @@ class HomeViewController: BaseTableViewController {
         }
         setupNav()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "change", name: JYPopoverAnimatorDismissNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "presentPhotoBrowserView:", name: JYStatusPictureViewSelected, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.change), name: JYPopoverAnimatorShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.change), name: JYPopoverAnimatorDismissNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.presentPhotoBrowserView(_:)), name: JYStatusPictureViewSelected, object: nil)
         
         tableView.registerClass(StatusNormalTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.NormalCell.rawValue)
         tableView.registerClass(StatusForwardTableViewCell.self, forCellReuseIdentifier: StatusTableViewCellIdentifier.ForwardCell.rawValue)
         tableView.separatorStyle = .None
         
         refreshControl = HomeRefreshControl()
-        refreshControl?.addTarget(self, action: "loadData", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl?.addTarget(self, action: #selector(HomeViewController.loadData), forControlEvents: UIControlEvents.ValueChanged)
         
         loadData()
     }
@@ -66,12 +66,12 @@ class HomeViewController: BaseTableViewController {
     }
     
     private func setupNav(){
-        navigationItem.leftBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_friendattention", target: self, action: "leftItemClick")
-        navigationItem.rightBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_pop", target: self, action: "rightItemClick")
+        navigationItem.leftBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_friendattention", target: self, action: #selector(HomeViewController.leftItemClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem.creatBarButtonItem("navigationbar_pop", target: self, action: #selector(HomeViewController.rightItemClick))
         
         let titleBtn = TitleButton()
         titleBtn.setTitle("Jatstar", forState: .Normal)
-        titleBtn .addTarget(self, action: "titltBtnClick:", forControlEvents: .TouchUpInside)
+        titleBtn .addTarget(self, action: #selector(HomeViewController.titltBtnClick(_:)), forControlEvents: .TouchUpInside)
         navigationItem.titleView = titleBtn
     }
     
@@ -164,11 +164,11 @@ class HomeViewController: BaseTableViewController {
     }()
     
     func leftItemClick(){
-        print(__FUNCTION__)
+        print(#function)
     }
     
     func rightItemClick(){
-        print(__FUNCTION__)
+        print(#function)
        print(UserAccount.loadAccount())
     }
 
@@ -186,6 +186,7 @@ extension HomeViewController
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return statuses?.count ?? 0
     }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         

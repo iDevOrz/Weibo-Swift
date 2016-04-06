@@ -65,7 +65,7 @@ class PhotoBrowserController: UIViewController {
         let index = collectionView.indexPathsForVisibleItems().last!
         let cell = collectionView.cellForItemAtIndexPath(index) as! PhotoBrowserCell
         let image = cell.iconView.image
-        UIImageWriteToSavedPhotosAlbum(image!, self, "image:didFinishSavingWithError:contextInfo:", nil)
+        UIImageWriteToSavedPhotosAlbum(image!, self, #selector(PhotoBrowserController.image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     func image(image:UIImage, didFinishSavingWithError error:NSError?, contextInfo:AnyObject){
         if error != nil
@@ -87,7 +87,7 @@ class PhotoBrowserController: UIViewController {
         btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         btn.backgroundColor = UIColor.darkGrayColor()
         
-        btn.addTarget(self, action: "close", forControlEvents: UIControlEvents.TouchUpInside)
+        btn.addTarget(self, action: #selector(OAuthViewController.close), forControlEvents: UIControlEvents.TouchUpInside)
         return btn
     }()
     
@@ -97,7 +97,7 @@ class PhotoBrowserController: UIViewController {
         btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         btn.backgroundColor = UIColor.darkGrayColor()
         
-        btn.addTarget(self, action: "save", forControlEvents: UIControlEvents.TouchUpInside)
+        btn.addTarget(self, action: #selector(PhotoBrowserController.save), forControlEvents: UIControlEvents.TouchUpInside)
         return btn
     }()
     

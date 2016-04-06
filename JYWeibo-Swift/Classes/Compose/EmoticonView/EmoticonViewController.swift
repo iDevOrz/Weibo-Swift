@@ -71,8 +71,8 @@ class EmoticonViewController: UIViewController {
         var index = 0
         for title in ["最近", "默认", "emoji", "浪小花"]
         {
-            let item = UIBarButtonItem(title: title, style: UIBarButtonItemStyle.Plain, target: self, action: "itemClick:")
-            item.tag = index++
+            let item = UIBarButtonItem(title: title, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(EmoticonViewController.itemClick(_:)))
+            item.tag = index + 1
             items.append(item)
             items.append(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil))
         }
@@ -104,7 +104,7 @@ extension EmoticonViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let emoticon = packages[indexPath.section].emoticons![indexPath.item]
-        emoticon.times++
+        emoticon.times += 1
         packages[0].appendEmoticons(emoticon)
         
         emoticonDidSelectedCallBack(emoticon: emoticon)

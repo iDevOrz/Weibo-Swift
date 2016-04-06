@@ -22,7 +22,7 @@ class OAuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Jatstar"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "关闭", style: .Plain, target: self, action: "close")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "关闭", style: .Plain, target: self, action: #selector(OAuthViewController.close))
         
         /// SSL 不是1.2版本 http://stackoverflow.com/questions/30927368/nsurlsession-nsurlconnection-http-load-failed-kcfstreamerrordomainssl-9802
         let urlStr = "https://api.weibo.com/oauth2/authorize?client_id=\(App_Key)&redirect_uri=\(App_Redirect_Uri)"
