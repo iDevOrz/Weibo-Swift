@@ -33,4 +33,15 @@ Weibo by Swift2.0
 (更好的熟悉的Swift及其框架)
 
 
-### = =... 
+## One More Thing
+
+![](https://github.com/Jatstar/Weibo-Swift/blob/master/fuckSwift.jpg)
+
+
+借一张图，貌似3.0跑不起来了。
+
+无限期太监。
+
+我还是学好OC先。
+
+欢迎 Pull Request.
